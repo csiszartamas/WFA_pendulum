@@ -28,35 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbArtist = new System.Windows.Forms.ComboBox();
+            this.cbAlbum = new System.Windows.Forms.ComboBox();
             this.lbArtist = new System.Windows.Forms.Label();
             this.lbSearch = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbKereses = new System.Windows.Forms.TextBox();
+            this.pBKepek = new System.Windows.Forms.PictureBox();
             this.lbUrl = new System.Windows.Forms.Label();
             this.llbLink = new System.Windows.Forms.LinkLabel();
             this.lbAlbum = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.rTBAdatok = new System.Windows.Forms.RichTextBox();
+            this.tbDiscoDiscoJoJo = new System.Windows.Forms.Button();
+            this.btUrl = new System.Windows.Forms.Button();
+            this.btEdit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBKepek)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbArtist
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cbArtist.FormattingEnabled = true;
+            this.cbArtist.Location = new System.Drawing.Point(19, 45);
+            this.cbArtist.Name = "cbArtist";
+            this.cbArtist.Size = new System.Drawing.Size(121, 21);
+            this.cbArtist.TabIndex = 0;
+            this.cbArtist.SelectedIndexChanged += new System.EventHandler(this.cbArtist_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cbAlbum
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(157, 45);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
+            this.cbAlbum.FormattingEnabled = true;
+            this.cbAlbum.Location = new System.Drawing.Point(170, 45);
+            this.cbAlbum.Name = "cbAlbum";
+            this.cbAlbum.Size = new System.Drawing.Size(121, 21);
+            this.cbAlbum.TabIndex = 1;
+            this.cbAlbum.SelectedIndexChanged += new System.EventHandler(this.cbAlbum_SelectedIndexChanged);
             // 
             // lbArtist
             // 
@@ -76,28 +86,67 @@
             this.lbSearch.TabIndex = 4;
             this.lbSearch.Text = "Search in track\'s title";
             // 
-            // dataGridView1
+            // dgv
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 176);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(398, 241);
-            this.dataGridView1.TabIndex = 5;
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.title,
+            this.length,
+            this.Column3,
+            this.Column4});
+            this.dgv.Location = new System.Drawing.Point(19, 176);
+            this.dgv.MultiSelect = false;
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RowHeadersVisible = false;
+            this.dgv.Size = new System.Drawing.Size(398, 241);
+            this.dgv.TabIndex = 5;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
-            // textBox1
+            // title
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(398, 20);
-            this.textBox1.TabIndex = 6;
+            this.title.HeaderText = "Title";
+            this.title.Name = "title";
+            this.title.ReadOnly = true;
             // 
-            // pictureBox1
+            // length
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(434, 176);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 104);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.length.HeaderText = "Length";
+            this.length.Name = "length";
+            this.length.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Column4";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // tbKereses
+            // 
+            this.tbKereses.Location = new System.Drawing.Point(19, 123);
+            this.tbKereses.Name = "tbKereses";
+            this.tbKereses.Size = new System.Drawing.Size(398, 20);
+            this.tbKereses.TabIndex = 6;
+            this.tbKereses.TextChanged += new System.EventHandler(this.tbKereses_TextChanged);
+            // 
+            // pBKepek
+            // 
+            this.pBKepek.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pBKepek.Location = new System.Drawing.Point(452, 176);
+            this.pBKepek.Name = "pBKepek";
+            this.pBKepek.Size = new System.Drawing.Size(104, 104);
+            this.pBKepek.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pBKepek.TabIndex = 7;
+            this.pBKepek.TabStop = false;
             // 
             // lbUrl
             // 
@@ -113,38 +162,83 @@
             this.llbLink.AutoSize = true;
             this.llbLink.Location = new System.Drawing.Point(518, 319);
             this.llbLink.Name = "llbLink";
-            this.llbLink.Size = new System.Drawing.Size(0, 13);
+            this.llbLink.Size = new System.Drawing.Size(37, 13);
             this.llbLink.TabIndex = 9;
+            this.llbLink.TabStop = true;
+            this.llbLink.Text = "NOPE";
             // 
             // lbAlbum
             // 
             this.lbAlbum.AutoSize = true;
-            this.lbAlbum.Location = new System.Drawing.Point(197, 20);
+            this.lbAlbum.Location = new System.Drawing.Point(205, 20);
             this.lbAlbum.Name = "lbAlbum";
             this.lbAlbum.Size = new System.Drawing.Size(36, 13);
             this.lbAlbum.TabIndex = 10;
             this.lbAlbum.Text = "Album";
+            // 
+            // rTBAdatok
+            // 
+            this.rTBAdatok.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.rTBAdatok.Location = new System.Drawing.Point(565, 176);
+            this.rTBAdatok.Name = "rTBAdatok";
+            this.rTBAdatok.Size = new System.Drawing.Size(207, 104);
+            this.rTBAdatok.TabIndex = 11;
+            this.rTBAdatok.Text = "";
+            // 
+            // tbDiscoDiscoJoJo
+            // 
+            this.tbDiscoDiscoJoJo.Location = new System.Drawing.Point(452, 364);
+            this.tbDiscoDiscoJoJo.Name = "tbDiscoDiscoJoJo";
+            this.tbDiscoDiscoJoJo.Size = new System.Drawing.Size(104, 40);
+            this.tbDiscoDiscoJoJo.TabIndex = 12;
+            this.tbDiscoDiscoJoJo.Text = "Add Discography";
+            this.tbDiscoDiscoJoJo.UseVisualStyleBackColor = true;
+            this.tbDiscoDiscoJoJo.Click += new System.EventHandler(this.tbDiscoDiscoJoJo_Click);
+            // 
+            // btUrl
+            // 
+            this.btUrl.Location = new System.Drawing.Point(565, 364);
+            this.btUrl.Name = "btUrl";
+            this.btUrl.Size = new System.Drawing.Size(96, 40);
+            this.btUrl.TabIndex = 13;
+            this.btUrl.Text = "Add URL";
+            this.btUrl.UseVisualStyleBackColor = true;
+            this.btUrl.Click += new System.EventHandler(this.btUrl_Click);
+            // 
+            // btEdit
+            // 
+            this.btEdit.Location = new System.Drawing.Point(677, 364);
+            this.btEdit.Name = "btEdit";
+            this.btEdit.Size = new System.Drawing.Size(95, 40);
+            this.btEdit.TabIndex = 14;
+            this.btEdit.Text = "Edit Selected";
+            this.btEdit.UseVisualStyleBackColor = true;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btEdit);
+            this.Controls.Add(this.btUrl);
+            this.Controls.Add(this.tbDiscoDiscoJoJo);
+            this.Controls.Add(this.rTBAdatok);
             this.Controls.Add(this.lbAlbum);
             this.Controls.Add(this.llbLink);
             this.Controls.Add(this.lbUrl);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pBKepek);
+            this.Controls.Add(this.tbKereses);
+            this.Controls.Add(this.dgv);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.lbArtist);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbAlbum);
+            this.Controls.Add(this.cbArtist);
             this.Name = "FrmMain";
             this.Text = "Discograpy Tracker";
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBKepek)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,16 +246,24 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbArtist;
+        private System.Windows.Forms.ComboBox cbAlbum;
         private System.Windows.Forms.Label lbArtist;
         private System.Windows.Forms.Label lbSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.TextBox tbKereses;
+        private System.Windows.Forms.PictureBox pBKepek;
         private System.Windows.Forms.Label lbUrl;
         private System.Windows.Forms.LinkLabel llbLink;
         private System.Windows.Forms.Label lbAlbum;
+        private System.Windows.Forms.RichTextBox rTBAdatok;
+        private System.Windows.Forms.Button tbDiscoDiscoJoJo;
+        private System.Windows.Forms.Button btUrl;
+        private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn length;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
 

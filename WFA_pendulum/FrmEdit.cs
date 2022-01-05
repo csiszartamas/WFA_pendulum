@@ -55,7 +55,7 @@ namespace WFA_pendulum
                 this.Close();
                 MessageBox.Show("Sikeres módosítás!");
             }
-            if (response == DialogResult.No)
+            else if (response == DialogResult.No)
             {
                 MessageBox.Show("Szerkesztés megszakítva");
             }

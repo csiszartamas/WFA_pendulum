@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumsClass.cs" />
-    <Compile Include="EditFormBase.cs" />
     <Compile Include="FrmEdit.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -44,27 +44,20 @@ namespace WFA_pendulum
 
         private void btEdit_Click(object sender, EventArgs e)
         {
-            DialogResult response = MessageBox.Show("Biztos szerkeszteni akarod?", "Edit", MessageBoxButtons.YesNo);
+            DialogResult response = MessageBox.Show("Szerkeszteni akarod?", "", MessageBoxButtons.YesNo);
             if (response == DialogResult.Yes)
             {
-                using (var conn = new SqlConnection(ConnectionString))
+                using (var c = new SqlConnection(ConnectionString))
                 {
-                    conn.Open();
-                    if (tbUrl.Text.ToLower() == "null")
-                    {
-                        new SqlCommand($"UPDATE Tracks SET title = '{tbTitle.Text}', length = '{tbLength.Text}', album = '{tbAlbum.Text}', url = '{tbUrl.Text}' WHERE id = {Id};", conn).ExecuteNonQuery();
-                    }
-                    else
-                    {
-                        new SqlCommand($"UPDATE Tracks SET title = '{tbTitle.Text}', length = '{tbLength.Text}', album = '{tbAlbum.Text}', url = '{tbUrl.Text}' WHERE id = '{Id}';", conn).ExecuteNonQuery();
-                    }
+                    c.Open();
+                    new SqlCommand($"UPDATE Tracks SET title = '{tbTitle.Text}', length = '{tbLength.Text}', album = '{tbAlbum.Text}', url = '{tbUrl.Text}' WHERE id = '{Id}';", c).ExecuteNonQuery();
                 }
                 this.Close();
-                MessageBox.Show("Sikeresen módosítottuk");
+                MessageBox.Show("Sikeres módosítás!");
             }
             if (response == DialogResult.No)
             {
-                MessageBox.Show("Megszakítottuk a szerkeztést");
+                MessageBox.Show("Szerkesztés megszakítva");
             }
         }
     }

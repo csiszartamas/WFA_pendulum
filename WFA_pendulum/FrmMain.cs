@@ -156,7 +156,7 @@ namespace WFA_pendulum
 
         private void tbDiscoDiscoJoJo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Későn olvastam el a feladatot :'D", "");
+            MessageBox.Show("Későn olvastam el a feladatot :'D");
         }
     }
 }

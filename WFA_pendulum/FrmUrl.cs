@@ -35,17 +35,17 @@ namespace WFA_pendulum
                     {
                         c.Open();
                         new SqlCommand($"UPDATE Tracks SET url = '{tbUrl.Text.Remove(0, 17)}' WHERE id = {Id};", c).ExecuteNonQuery();
-                        MessageBox.Show("Sikeresen frissítetted!", "");
+                        MessageBox.Show("Sikeresen frissítetted!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Nem megfelelő a link!", "");
+                    MessageBox.Show("Nem megfelelő a link!");
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Nem megfelelő a link!", "");
+                MessageBox.Show("Nem megfelelő a link!");
             }
         }
 
